@@ -1,0 +1,24 @@
+version: "3.0"
+
+services:
+  influx:
+    image: influxdb
+    env_file: .env
+    ports:
+      - "8086:8086"
+    volumes:
+      - "./.local/influxdb2:/var/lib/influxdb2"
+
+  python-displaying-binance-data:
+    build: .
+    ports:
+      - "8050:8050"
+    volumes:
+      - ./:/usr/src/app
+    command: python displaying-binance-data.py
+
+  python-binance-current-data-retrieval-socket:
+    build: .
+    volumes:
+      - ./:/usr/src/app
+    command: python binance-current-data-retrieval-socket.py

@@ -1,0 +1,8 @@
+install
+dash
+pandas
+requests
+plotly
+influxdb-client
+python-binance==1.0.13
+python-dotenv
